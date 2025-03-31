@@ -23,6 +23,8 @@ import { ScheduleService } from '../../services/api-patient/schedules/schedule.s
 })
 export class ScheduleMonthComponent implements OnInit, OnDestroy {
 
+  title = 'Agendamentos';
+
   private subscriptions: Subscription[] = []
   private selectedDate?: Date
 

@@ -1,10 +1,10 @@
-import { Component, Inject, OnDestroy } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { IPatientService } from '../../services/api-patient/patients/ipatients.service';
 import { SERVICES_TOKEN } from '../../services/service.token';
 import { PatientsService } from '../../services/api-patient/patients/patients.service';
 import { PatientModelForm } from '../patient-models';
-import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import { filter, map, Subscription } from 'rxjs';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ISnackbarManagerService } from '../../services/isnackbar-manager.service';
 import { SnackbarManagerService } from '../../services/snackbar-manager.service';
 
@@ -20,6 +20,9 @@ import { SnackbarManagerService } from '../../services/snackbar-manager.service'
   ]
 })
 export class NewPatientComponent implements OnDestroy{
+    title = 'Cadastrar paciente';
+
+    private routeSubscription?: Subscription;
 
     private httpSubscription?: Subscription
 
@@ -28,7 +31,12 @@ export class NewPatientComponent implements OnDestroy{
       @Inject(SERVICES_TOKEN.SNACKBAR) private readonly  snackBarManager: ISnackbarManagerService,
       private readonly router: Router){}
 
+
   ngOnDestroy(): void {
+    if (this.routeSubscription){
+      this.routeSubscription.unsubscribe()
+    }
+
       if(this.httpSubscription){
         this.httpSubscription.unsubscribe()
       }

@@ -21,6 +21,8 @@ import { ISnackbarManagerService } from '../../services/isnackbar-manager.servic
 })
 export class ListPatientsComponent implements OnInit, OnDestroy {
 
+  title = 'Pacientes cadastrados';
+
   private httpSubscriptions: Subscription[] = []
 
   patients: PatientModelTable[] = []

@@ -31,6 +31,14 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTimepickerModule } from '@angular/material/timepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HomeComponent } from './pages/home/home.component';
+import { NavbarComponent } from './commons/components/navbar/navbar.component';
+import { BannerComponent } from './commons/components/banner/banner.component';
+import { ContentComponent } from './commons/components/content/content.component';
+import { TextComponent } from './commons/components/content/text/text.component';
+import { CardComponent } from './commons/components/content/card/card.component';
+import {ControlPageComponent} from './pages/control-page/control-page.component'
+
 
 @NgModule({
   declarations: [
@@ -44,7 +52,14 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     MenuBarComponent,
     YesNoDialogComponent,
     PatientFormComponent,
-    ScheduleMonthComponent
+    ScheduleMonthComponent,
+    HomeComponent,
+    NavbarComponent,
+    BannerComponent,
+    ContentComponent,
+    TextComponent,
+    CardComponent,
+    ControlPageComponent
   ],
   imports: [
     BrowserModule,

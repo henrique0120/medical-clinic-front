@@ -4,13 +4,17 @@ import { EditPatientsComponent } from './patients/edit-patients/edit-patients.co
 import { NewPatientComponent } from './patients/new-patient/new-patient.component';
 import { ListPatientsComponent } from './patients/list-patients/list-patients.component';
 import { ScheduleMonthComponent } from './schedules/schedules-month/schedule-month.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ControlPageComponent } from './pages/control-page/control-page.component';
 
 const routes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'control', component:ControlPageComponent},
   {path: 'patients/edit-patient/:id', component: EditPatientsComponent, data:{title:'Atualizar paciente'}},
   {path: 'patients/new-patient', component: NewPatientComponent, data:{title:'Cadastrar paciente'}},
   {path: 'patients/list', component: ListPatientsComponent, data:{title:'Pacientes cadastrados'}},
   {path: 'schedules/month', component: ScheduleMonthComponent, data:{title:'Agendamentos'}},
-  {path: '**', redirectTo: 'schedules/month'}
+
 ];
 
 @NgModule({

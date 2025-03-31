@@ -9,7 +9,7 @@ import { filter, map, Subscription } from 'rxjs';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit, OnDestroy{
-  title = 'medical-clinic';
+  textButton: string = ""
 
   private routeSubscription?: Subscription;
 
@@ -23,19 +23,20 @@ export class AppComponent implements OnInit, OnDestroy{
     }
   }
 
-  ngOnInit(): void {
-     this.routeSubscription = this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      map(() => this.getRouteTitle(this.activatedRoute))
-    ).subscribe(title => this.title = title)
+  ngOnInit() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.updateButtonText(event.urlAfterRedirects);
+      }
+    });
   }
 
-  private getRouteTitle(route: ActivatedRoute): string {
-    let child = route;
-    while (child.firstChild){
-      child = child.firstChild;
+  updateButtonText(url: string) {
+    if (url !== '/') {
+      this.textButton = 'Home';
+    } else {
+      this.textButton = 'Controle de pacientes'; // Botão sem texto na rota `/`
     }
-    return child.snapshot.data['title'] || 'Default Title';
   }
 
 
