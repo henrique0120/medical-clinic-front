@@ -3,8 +3,8 @@ import { IPatientService } from '../../services/api-patient/patients/ipatients.s
 import { SERVICES_TOKEN } from '../../services/service.token';
 import { PatientsService } from '../../services/api-patient/patients/patients.service';
 import { PatientModelForm } from '../patient-models';
-import { filter, map, Subscription } from 'rxjs';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 import { ISnackbarManagerService } from '../../services/isnackbar-manager.service';
 import { SnackbarManagerService } from '../../services/snackbar-manager.service';
 

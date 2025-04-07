@@ -15,9 +15,11 @@ import { NgForm } from '@angular/forms';
 })
 export class PatientFormComponent {
 
-  @Input() patient: PatientModelForm = { id: 0, name: '', email: '', phone: '' }
+  @Input()
+  patient: PatientModelForm = { id: 0, name: '', email: '', phone: '' }
 
-  @Output() patientSubmited = new EventEmitter<PatientModelForm>();
+  @Output()
+  patientSubmited = new EventEmitter<PatientModelForm>();
 
   onSubmit(_: NgForm) {
     this.patientSubmited.emit(this.patient)
